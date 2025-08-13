@@ -15,7 +15,7 @@ To control the simulation:
 
 Areas for improvement:
 
-1. Add Barnes-Hut algo!!!
+1. Make the camera work! (why doesn't it??? It worked yesterday. Come on)
 2. Add more areas for improvemnt
 
 ---

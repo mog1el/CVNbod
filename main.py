@@ -24,6 +24,7 @@ masslim = 30
 dt = 0.1
 G = 1
 c = 3e8
+theta = 0.5
 
 camera_x = 0
 camera_y = 0
@@ -58,7 +59,7 @@ class Particle():
 
 my_particles = []
 existing = []
-for i in range(200):
+for i in range(1000):
     x = random.randint(0, width)
     y = random.randint(0, height)
     if (x, y) not in existing:
@@ -110,11 +111,13 @@ while running:
         cv2.imshow("capture image", frame)
         if cv2.waitKey(1) == ord('q'):
             running = False
+    else:
+        print("camera boom") #Not printing despite the camera showing only black screen...
     
     screen.fill((0, 0, 0))
 
     if not pause:
-        gravity(my_particles, G, dt)
+        gravity(my_particles, G, dt, theta)
         my_particles = merger(my_particles, G, masslim, c)
 
     for p in my_particles:
