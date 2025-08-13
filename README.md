@@ -1,6 +1,6 @@
 ## Hand controlled gravity sim
 
-A project I've created to learn about computer vision and python. I've used real-world equations to model not only gravity, but also other things like the radius of black (here white) holes created. 
+A project I've created to learn about computer vision and python. I've used real-world equations to model not only gravity, but also other things like the radius of black (here white) holes created. It uses a Barnes-Hut algorithm, that utilizes a quad tree to approximate the gravitational pull exerted on an object in order to improve complexity fom $O(N^2)$ to $O(NlogN)$ (in exchange for some accuracy of course).
 
 To control the simulation: 
 
@@ -15,8 +15,7 @@ To control the simulation:
 
 Areas for improvement:
 
-1. Make the camera work! (why doesn't it??? It worked yesterday. Come on)
-2. Add more areas for improvemnt
+1. Add more areas for improvemnt
 
 ---
 

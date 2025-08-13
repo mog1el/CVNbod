@@ -112,7 +112,7 @@ while running:
         if cv2.waitKey(1) == ord('q'):
             running = False
     else:
-        print("camera boom") #Not printing despite the camera showing only black screen...
+        print("camera boom") 
     
     screen.fill((0, 0, 0))
 
