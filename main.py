@@ -21,7 +21,7 @@ world_width = 3000
 world_height = 2000
 
 masslim = 30
-dt = 0.1
+dt = 0.5
 G = 1
 c = 3e8
 theta = 0.5
@@ -59,7 +59,7 @@ class Particle():
 
 my_particles = []
 existing = []
-for i in range(1000):
+for i in range(500):
     x = random.randint(0, width)
     y = random.randint(0, height)
     if (x, y) not in existing:
