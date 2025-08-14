@@ -95,7 +95,7 @@ class Quad:
         
 def force(particle, node, G, theta):
     if node.leaf and node.particle is not None and node.particle is not particle:
-        return newton(particle, node.particle.x, node.particle.y, node.particle.totalmass, G)
+        return newton(particle, node.particle.x, node.particle.y, node.particle.mass, G)
     
     s = node.width
     dx = particle.x - node.masscentrx
@@ -106,7 +106,7 @@ def force(particle, node, G, theta):
         return 0, 0
     
     if s/dist < theta:
-        return newton(particle, node.particle.x, node.particle.y, node.particle.totalmass, G)
+        return newton(particle, node.masscentrx, node.masscentry, node.totalmass, G)
     Fx = 0
     Fy = 0
     children = [node.topLeftTree, node.topRightTree, node.botLeftTree, node.botRightTree]
