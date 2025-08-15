@@ -17,13 +17,11 @@ pygame.init()
 
 width = 1500
 height = 1000
-world_width = 3000
-world_height = 2000
 
 masslim = 30
 dt = 0.5
-G = 1
-c = 3e8
+G = 10
+c = 50
 theta = 0.5
 
 camera_x = 0
@@ -59,7 +57,7 @@ class Particle():
 
 my_particles = []
 existing = []
-for i in range(500):
+for i in range(200):
     x = random.randint(0, width)
     y = random.randint(0, height)
     if (x, y) not in existing:
@@ -98,13 +96,13 @@ while running:
                     if camera_y > 0:
                         camera_y -= camera_speed
                 elif current == "out":
-                    if camera_y < world_height - (height/camera_zoom):
+                    if camera_y < height - (height/camera_zoom):
                         camera_y += camera_speed
                 elif current == "pinky":
-                    if camera_x < world_width - (width/camera_zoom):
+                    if camera_x < width - (width/camera_zoom):
                         camera_x += camera_speed
                 elif current == "middle":
-                    if camera_zoom > width/world_width:
+                    if camera_zoom > width/width:
                         camera_zoom -= zoom_speed
         else:
             pause = 0
@@ -122,6 +120,11 @@ while running:
 
     for p in my_particles:
         p.display(camera_x, camera_y, camera_zoom)
+
+        if p.x - p.radius < 0 or p.x + p.radius > width:
+            p.x_vel *= -1
+        elif p.y - p.radius < 0 or p.y + p.radius > height:
+            p.y_vel *= -1
 
     pygame.display.update() 
     clock.tick(120)
